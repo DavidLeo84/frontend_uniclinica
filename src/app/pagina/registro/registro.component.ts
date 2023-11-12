@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RegistroMedicoDTO } from 'src/app/modelo/registro-medico-dto';
 import { RegistroPacienteDTO } from 'src/app/modelo/registro-paciente-dto';
 
 @Component({
@@ -8,9 +9,11 @@ import { RegistroPacienteDTO } from 'src/app/modelo/registro-paciente-dto';
 })
 export class RegistroComponent {
 
+  registroMedicoDTO: RegistroMedicoDTO;
   registroPacienteDTO: RegistroPacienteDTO;
   eps: string[];
   ciudades: string[];
+  tipoSangre: string[];
   archivos!: FileList;
 
   private cargarEps() {
@@ -28,12 +31,24 @@ export class RegistroComponent {
     this.ciudades.push("Medellín");
   }
 
+  private cargarTipoSangre() {
+    this.tipoSangre.push("A+");
+    this.tipoSangre.push("A-");
+    this.tipoSangre.push("AB+");
+    this.tipoSangre.push("AB-");
+    this.tipoSangre.push("O+");
+    this.tipoSangre.push("O-");
+  }
+
   constructor() {
+    this.registroMedicoDTO = new RegistroMedicoDTO();
     this.registroPacienteDTO = new RegistroPacienteDTO();
     this.ciudades = [];
     this.cargarCiudades();
     this.eps = [];
     this.cargarEps();
+    this.tipoSangre = [];
+    this.cargarTipoSangre();
   }
 
   public onFileChange(event: any) {
@@ -50,7 +65,6 @@ export class RegistroComponent {
       console.log("Debe cargar una foto");
     }
   }
-
 
   public sonIguales(): boolean {
     return this.registroPacienteDTO.password == this.registroPacienteDTO.confirmaPassword;

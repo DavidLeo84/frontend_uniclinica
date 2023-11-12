@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'uniclinica_app';
+  subtitle = 'version 1.0';
 }
