@@ -1,4 +1,4 @@
 export class LoginDTO {
-    correo:string = "";
+    user:string = "";
     password:string = "";
 }

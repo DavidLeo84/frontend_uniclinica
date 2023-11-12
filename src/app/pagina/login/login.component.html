@@ -1,5 +1,18 @@
 <form #f="ngForm" (ngSubmit)="login()">
+    <div>
+        <label for="">Tipo de usuario</label>
+        <input type="checkbox" name="paciente" id="paciente" placeholder="introduzca su usuario">
+        <input type="checkbox" name="medico" id="medico" placeholder="introduzca su usuario">
+        <input type="checkbox" name="admin" id="admin" placeholder="introduzca su usuario">
+    </div>
+    <div>
+        <label>Usuario: </label>
+        <input type="text" name="user" required="true" [(ngModel)]="loginDTO.user" placeholder="introduzca su usuario" />
+    </div>
+    <div>
+        <label>Contraseña</label>
+        <input type="password" name="password" required="true" [(ngModel)]="loginDTO.password" placeholder="introduzca su password"/>
+    </div>
 
-
-
+    <button type="submit">Iniciar</button>
 </form>
